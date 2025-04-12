@@ -1,23 +1,22 @@
-#ifndef OBJBASE_H
-#define OBJBASE_H
-
-struct IID {
-    unsigned long  Data1;
-    unsigned short Data2;
-    unsigned short Data3;
-    unsigned char  Data4[8];
-
-    bool operator==(const IID& other) const {
-        return Data1 == other.Data1 &&
-               Data2 == other.Data2 &&
-               Data3 == other.Data3 &&
-               std::equal(std::begin(Data4), std::end(Data4), std::begin(other.Data4));
-    }
-};
+#include <unknwn.h>
 
 extern const IID IID_IX;
 extern const IID IID_IY;
 extern const IID IID_IZ;
 extern const IID IID_IUnknown1;
 
-#endif
+const IID IID_IX =
+{ 0x32bb8320, 0xb41b, 0x11cf,
+{0xa6, 0xbb, 0x0, 0x80, 0xc7, 0xb2, 0xd6, 0x82} };
+
+const IID IID_IY =
+{ 0x32bb8321, 0xb41b, 0x11cf,
+{0xa6, 0xbb, 0x0, 0x80, 0xc7, 0xb2, 0xd6, 0x82} };
+
+const IID IID_IZ =
+{ 0x32bb8322, 0xb41b, 0x11cf,
+{0xa6, 0xbb, 0x0, 0x80, 0xc7, 0xb2, 0xd6, 0x82} };
+
+const IID IID_IUnknown1 =
+{ 0x32bb8323, 0xb41b, 0x11cf,
+{0xa6, 0xbb, 0x0, 0x80, 0xc7, 0xb2, 0xd6, 0x82} };

@@ -1,27 +1,24 @@
 #include <iostream>
 #include "objbase.h"
-#include "unknwn.h"
+#include <unknwn.h>
 
 
-class IX : public IUnknown {
-    virtual void Fx() = 0;
+interface IX : public IUnknown {
+    virtual void __stdcall Fx() = 0;
 };
 
-class IY : public IUnknown {
-    virtual void Fy() = 0;
+interface IY : public IUnknown {
+    virtual void __stdcall Fy() = 0;
 };
 
-class IZ : public IUnknown {
-    virtual void Fz() = 0;
+interface IZ : public IUnknown {
+    virtual void __stdcall Fz() = 0;
 };
 
 class CA : public IX, public IY {
 
-    const int S_OK = 0;
-    const int E_NOINTERFACE = 1;
-
-    virtual unsigned long AddRef() { return 0; }
-    virtual unsigned long Release() { return 0; }
+    virtual ULONG __stdcall AddRef() { return 0; }
+    virtual ULONG __stdcall Release() { return 0; }
 
     virtual HRESULT QueryInterface(const IID& iid, void** ppv) {
         if (iid == IID_IUnknown1) {
@@ -57,7 +54,7 @@ int main() {
 
     std::cout << "Hello, World!" << std::endl;
 
-    typedef int hr;
+    HRESULT hr;
 
     std::cout << "Client: get pointer to IUnknown" << std::endl;
     IUnknown* pIUnknown = CreateInstance();
@@ -101,7 +98,7 @@ int main() {
     IUnknown* pIUnknownFromIY = NULL;
     hr = pIY->QueryInterface(IID_IUnknown1, (void**)&pIUnknownFromIY);
     if (SUCCEEDED(hr)) {
-        std::cout << "Eq" << std::endl;
+        std::cout << "Two pointers are equal?" << std::endl;
         if (pIUnknownFromIY == pIUnknown) {
             std::cout << "YES" << std::endl;
         } else {
