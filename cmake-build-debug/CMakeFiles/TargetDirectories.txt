@@ -1,0 +1,3 @@
+/Users/pog0sian/Desktop/Компонетно-ориентированное программирование/comlab3/cmake-build-debug/CMakeFiles/comlab3.dir
+/Users/pog0sian/Desktop/Компонетно-ориентированное программирование/comlab3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/pog0sian/Desktop/Компонетно-ориентированное программирование/comlab3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
